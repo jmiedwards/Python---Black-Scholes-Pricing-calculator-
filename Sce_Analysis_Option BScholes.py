@@ -9,6 +9,9 @@
 # Licence:     <your licence>
 #-------------------------------------------------------------------------------
 
+from scipy import stats
+import math
+
 def black_scholes (cp, s, k, t, v, rf, div):
         """ Price an option using the Black-Scholes model.
         s: initial stock price
@@ -28,8 +31,7 @@ def black_scholes (cp, s, k, t, v, rf, div):
 
 y = [(+1,71.95, 72, 0.002968, 0.37, 0.0025, 0), (+1,73.95, 72, 0.002968, 0.37, 0.0025, 0), (+1,72.50, 72, 0.002968, 0.37, 0.0025, 0), (+1,74.50, 72, 0.002968, 0.37, 0.0025, 0)]
 
-for i in y:
-    map(black_scholes r, (*r, y))
+for i in map(lambda x: black_scholes(*x),y):
     print i
 
 
