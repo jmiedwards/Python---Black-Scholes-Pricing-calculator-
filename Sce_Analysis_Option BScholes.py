@@ -29,9 +29,11 @@ def black_scholes (cp, s, k, t, v, rf, div):
         optprice = (cp*s*math.exp(-div*t)*stats.norm.cdf(cp*d1)) - (cp*k*math.exp(-rf*t)*stats.norm.cdf(cp*d2))
         return optprice
 
+#y is the scenario input data
 y = [(+1,71.95, 72, 0.002968, 0.37, 0.0025, 0), (+1,73.95, 72, 0.002968, 0.37, 0.0025, 0), (+1,72.50, 72, 0.002968, 0.37, 0.0025, 0), (+1,74.50, 72, 0.002968, 0.37, 0.0025, 0)]
 
 for i in map(lambda x: black_scholes(*x),y):
-    print i
+#This maps the black_scholes function on the list of tuples, produces option prices as specified by y
+        print i
 
 
